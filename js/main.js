@@ -34,23 +34,20 @@ class Application {
 
 		let px, py, pr;
 
-		try {
-			px = parseFloat(x);
-		} catch {
+		px = parseFloat(x);
+		if (isNaN(px)) {
 			this.animations.showMessageBox("x must be number xd");
 			return [null,null,null];
 		}
 
-		try {
-			py = parseFloat(y);
-		} catch {
+		py = parseFloat(y);
+		if (isNaN(py)) {
 			this.animations.showMessageBox("y must be number xd");
 			return [null,null,null];
 		}
 
-		try {
-			pr = parseFloat(r);
-		} catch {
+		pr = parseFloat(r);
+		if (isNaN(pr)) {
 			this.animations.showMessageBox("r must be number xd");
 			return [null,null,null];
 		}
