@@ -4,11 +4,13 @@ class AnimationProcessor {
 	x = 0;
 	y = 0;
 	score = 0;
+	wow = false;
 	hitOrMiss = document.querySelector(".hit-or-miss");
 	scoreElement = document.querySelector(".score");
 	messageBox = document.getElementById("message-box");
 	message = document.getElementById("message");
 	video = document.getElementById("video");
+	wowVideo = document.getElementById("wow");
 	awp = document.getElementById("awp");
 	tmp = document.getElementById("tmp");
 	blt = document.getElementById("blt");
@@ -43,7 +45,8 @@ class AnimationProcessor {
 	}
 
 	nextFrame() {
-		if (this.video.paused || this.video.ended) {
+		const video = this.wow ? this.wowVideo : this.video;
+		if (video.paused || video.ended) {
 			this.clearVideo();
 		} else {
 			this.resizeCanvases();
@@ -112,8 +115,15 @@ class AnimationProcessor {
 	}
 
 	drawVideoFrame() {
-		this.tmpCtx.drawImage(this.video, 0, 0, this.video.videoWidth, this.video.videoHeight);
-		const frame = this.tmpCtx.getImageData(0, 0, this.video.videoWidth, this.video.videoHeight);
+		let w, h;
+		if (this.wow) {
+			[w, h] = [this.wowVideo.videoWidth, this.wowVideo.videoHeight];
+			this.tmpCtx.drawImage(this.wowVideo, 0, 0, w, h);
+		} else {
+			[w, h] = [this.video.videoWidth, this.video.videoHeight];
+			this.tmpCtx.drawImage(this.video, 0, 0, w, h);
+		}
+		const frame = this.tmpCtx.getImageData(0, 0, w, h);
 		const length = frame.data.length;
 		const data = frame.data;
 
@@ -132,11 +142,18 @@ class AnimationProcessor {
 	async shoot(x, y, r, hit, now, script_time) {
 		this.x = 80 * x / r;
 		this.y = 80 * y / r;
-		this.video.play();
+		await this.video.play();
 		window.requestAnimationFrame(this.nextFrame.bind(this));
 		await new Promise(res => setTimeout(res, 900));
 		this.shotResult(x, y, r, hit, now, script_time);
 		await new Promise(res => setTimeout(res, 900));
+		if (x == 0 && y == 0) {
+			this.wow = true;
+			await this.wowVideo.play();
+			window.requestAnimationFrame(this.nextFrame.bind(this));
+			await new Promise(res => setTimeout(res, 4000));
+			this.wow = false;
+		}
 	}
 
 	showMessageBox(message) {
