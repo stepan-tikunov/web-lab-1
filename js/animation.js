@@ -5,8 +5,8 @@ class AnimationProcessor {
 	y = 0;
 	score = 0;
 	wow = false;
-	hitOrMiss = document.querySelector(".hit-or-miss");
-	scoreElement = document.querySelector(".score");
+	hitOrMiss = document.querySelector("#hit-or-miss");
+	scoreElement = document.querySelector("#score");
 	messageBox = document.getElementById("message-box");
 	message = document.getElementById("message");
 	video = document.getElementById("video");

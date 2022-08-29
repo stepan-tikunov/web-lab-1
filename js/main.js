@@ -35,19 +35,19 @@ class Application {
 		let px, py, pr;
 
 		px = parseFloat(x);
-		if (isNaN(px)) {
+		if (isNaN(x.trim()) || isNaN(px)) {
 			this.animations.showMessageBox("x must be number xd");
 			return [null,null,null];
 		}
 
 		py = parseFloat(y);
-		if (isNaN(py)) {
+		if (isNaN(y.trim()) || isNaN(py)) {
 			this.animations.showMessageBox("y must be number xd");
 			return [null,null,null];
 		}
 
 		pr = parseFloat(r);
-		if (isNaN(pr)) {
+		if (isNaN(r.trim()) || isNaN(pr)) {
 			this.animations.showMessageBox("r must be number xd");
 			return [null,null,null];
 		}
@@ -56,8 +56,8 @@ class Application {
 			this.animations.showMessageBox("use buttons to select x, your value is bad xd");
 			return [null,null,null];
 		}
-		if (yMin > py || py > yMax) {
-			this.animations.showMessageBox("y must be in [-5, 5] range xd")
+		if (yMin >= py || py >= yMax) {
+			this.animations.showMessageBox("y must be in (-5, 5) range xd")
 			return [null,null,null];
 		}
 		if (!rValues.includes(pr)) {

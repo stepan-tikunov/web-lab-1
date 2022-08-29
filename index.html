@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Л.Р. Веб Тикунов</title>
 	<style>
+		/* fonts */
 		@font-face {
 			font-family: "CSGO";
 			src: url("assets/cs_regular.ttf");
@@ -37,337 +38,7 @@
 			unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 		}
 
-		a {
-			text-decoration: none;
-		}
-
-		.killfeed-element-container {
-			text-align: center;
-			font-family: "Rajdhani", sans-serif;
-		}
-
-		.killfeed-element {
-			margin-top: 15px;
-			min-width: 100px;
-			position: relative;
-			display: inline-block;
-			background: rgba(0, 0, 0, 0.5);
-			border: 2px #B50000 solid;
-			border-radius: 6px;
-			padding: 0 10px;
-			transform: scale(1);
-			transition: .1s;
-		}
-
-		.killfeed-element:hover {
-			transform: scale(1.01);
-			box-shadow: 0 0 10px rgba(111, 0, 0, 0.5);
-		}
-
-		.killer {
-			max-width: 150px;
-			min-height: 40px;
-			color: #ECCE51;
-			display: table-cell;
-			vertical-align: middle;
-			padding-right: 10px;
-		}
-
-		.weapon {
-			display: table-cell;
-			vertical-align: middle;
-			padding-right: 10px;
-		}
-
-		.awp {
-			margin-top: 8px;
-			height: 25px;
-			width: 80px;
-			background: url("http://i.imgur.com/i5Euh7o.png") no-repeat;
-			background-size: cover;
-		}
-
-		.killed {
-			max-width: 150px;
-			margin-left: 10px;
-			color: #71A6FF;
-			display: table-cell;
-			vertical-align: middle;
-		}
-
-		#message-box {
-			position: fixed;
-			width: 380px;
-			min-height: 100px;
-			left: calc(50% - 250px);
-			top: calc(50% - 125px);
-			z-index: 100;
-			padding: 60px;
-		}
-
-		.row-container {
-			display: table-row;
-			min-height: 40px;
-		}
-
-		body {
-			margin: 0;
-			padding: 0;
-			animation-iteration-count: infinite;
-			font-family: 'Comic Sans MS', sans-serif;
-		}
-
-		.center {
-			text-align: center;
-		}
-
-		.v-top {
-			vertical-align: top;
-		}
-
-		.v-bottom {
-			vertical-align: bottom;
-		}
-
-		.p-0 {
-			padding: 0 !important;
-		}
-
-		.bt-0 {
-			border-top: 0 !important;
-		}
-
-		.bb-0 {
-			border-bottom: 0 !important;
-		}
-
-		.hit-or-miss {
-			z-index: 100;
-			font-family: "CSGO", sans-serif;
-			font-size: 60px;
-			text-align: center;
-			vertical-align: middle;
-			width: 200px;
-			position: fixed;
-			opacity: 0;
-			top: calc(50% - 30px);
-			left: calc(50% - 100px);
-			color: yellow;
-			text-transform: uppercase;
-			-webkit-text-stroke-color: black;
-			-webkit-text-stroke-width: 1px;
-		}
-
-		.fade-out {
-			animation: fade-out 1.5s ease-out;
-		}
-
-		h1,
-		h2,
-		h3,
-		h4,
-		h5 {
-			font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-			color: white;
-			margin: 0;
-			text-transform: uppercase;
-		}
-
-		.rainbow-text {
-			animation: rainbow 2s linear;
-			animation-iteration-count: infinite;
-			background: linear-gradient(45deg, red, orange, green, cyan, blue, purple, red);
-			background-size: 100vw;
-			background-clip: text;
-			color: transparent;
-			-webkit-background-clip: text;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color: white;
-		}
-
-		.rainbow-bg-h {
-			animation: reverse-rainbow 4s linear;
-			animation-iteration-count: infinite;
-			background: linear-gradient(90deg,
-					rgba(255, 0, 0, 1) 0%,
-					rgba(255, 154, 0, 1) 10%,
-					rgba(208, 222, 33, 1) 20%,
-					rgba(79, 220, 74, 1) 30%,
-					rgba(63, 218, 216, 1) 40%,
-					rgba(47, 201, 226, 1) 50%,
-					rgba(28, 127, 238, 1) 60%,
-					rgba(95, 21, 242, 1) 70%,
-					rgba(186, 12, 248, 1) 80%,
-					rgba(251, 7, 217, 1) 90%,
-					rgba(255, 0, 0, 1) 100%);
-			background-size: 100vw;
-		}
-
-		.rainbow-bg-v {
-			animation: vertical-rainbow 4s linear;
-			animation-iteration-count: infinite;
-			background: linear-gradient(0,
-					rgba(255, 0, 0, 1) 0%,
-					rgba(255, 154, 0, 1) 10%,
-					rgba(208, 222, 33, 1) 20%,
-					rgba(79, 220, 74, 1) 30%,
-					rgba(63, 218, 216, 1) 40%,
-					rgba(47, 201, 226, 1) 50%,
-					rgba(28, 127, 238, 1) 60%,
-					rgba(95, 21, 242, 1) 70%,
-					rgba(186, 12, 248, 1) 80%,
-					rgba(251, 7, 217, 1) 90%,
-					rgba(255, 0, 0, 1) 100%);
-			background-size: 100% 100vh;
-		}
-
-		.rainbow-bg-vr {
-			animation: reverse-vertical-rainbow 4s linear;
-			animation-iteration-count: infinite;
-			background: linear-gradient(0,
-					rgba(255, 0, 0, 1) 0%,
-					rgba(255, 154, 0, 1) 10%,
-					rgba(208, 222, 33, 1) 20%,
-					rgba(79, 220, 74, 1) 30%,
-					rgba(63, 218, 216, 1) 40%,
-					rgba(47, 201, 226, 1) 50%,
-					rgba(28, 127, 238, 1) 60%,
-					rgba(95, 21, 242, 1) 70%,
-					rgba(186, 12, 248, 1) 80%,
-					rgba(251, 7, 217, 1) 90%,
-					rgba(255, 0, 0, 1) 100%);
-			background-size: 100% 100vh;
-		}
-
-		.container {
-			width: 100vw;
-			height: 100vh;
-			border-collapse: collapse;
-			border: none;
-		}
-
-		.container td {
-			border: 2px solid white;
-			padding: 10px;
-		}
-
-		.container tr:last-child td {
-			border-bottom: 0;
-		}
-
-		.container tr td:first-child,
-		tr th:first-child {
-			border-left: 0;
-		}
-
-		.container tr td:last-child,
-		tr th:last-child {
-			border-right: 0;
-		}
-
-		.header {
-			text-align: center;
-			padding: 20px;
-			height: fit-content;
-		}
-
-		.header h1 {
-			font-size: 60px;
-		}
-
-		.header h2 {
-			font-size: 40px;
-		}
-
-		.hidden {
-			display: none;
-		}
-
-		.invisible {
-			opacity: 0;
-			pointer-events: none;
-			position: absolute;
-			display: inline;
-		}
-
-		.reverse {
-			transform: scaleX(-1);
-		}
-
-		.overlay {
-			position: fixed;
-			top: 0;
-			left: 0;
-			z-index: 10000;
-			pointer-events: none;
-		}
-		.bottom-image {
-			position: absolute;
-			z-index: -1;
-			bottom: 0;
-			left: calc(50% - 100px);
-		}
-		.bottom-image-container {
-			position: relative;
-		}
-
-		#hitmarker {
-			position: fixed;
-			height: 25px;
-			width: 25px;
-			z-index: 10;
-		}
-
-		button,
-		input[type="text"] {
-			animation: epileptic-rainbow .3s linear;
-			animation-iteration-count: infinite;
-			border-width: 3px;
-			border-style: solid;
-			border-radius: 5px;
-			padding: 3px;
-			transition: transform 100ms;
-		}
-
-		.epileptic-rainbow {
-			animation: epileptic-rainbow .3s linear;
-			animation-iteration-count: infinite;
-			border-width: 3px;
-			border-style: solid;
-			border-radius: 5px;
-		}
-
-		input,
-		button {
-			margin-top: 10px;
-			font-family: 'Comic Sans MS', sans-serif;
-		}
-
-		[type="submit"] {
-			width: 100%;
-			animation-delay: -225ms;
-			padding: 10px;
-			font-size: 20px;
-			margin-top: 20px;
-		}
-
-		.small {
-			transform: scale(0.8);
-		}
-
-		.plot {
-			position: fixed;
-			top: calc(50% - 100px);
-			left: calc(50% - 100px);
-		}
-
-		.score {
-			font-size: 25px;
-			margin: 10px;
-			color: yellow;
-			-webkit-text-stroke-color: black;
-			-webkit-text-stroke-width: 1px;
-		}
+		/* animations */
 
 		@keyframes fade-out {
 			from {
@@ -454,6 +125,344 @@
 				background-position: 0 0;
 			}
 		}
+
+		/* general styles */
+
+		html {
+			--rainbow-v: linear-gradient(0,
+					rgba(255, 0, 0, 1) 0%,
+					rgba(255, 154, 0, 1) 10%,
+					rgba(208, 222, 33, 1) 20%,
+					rgba(79, 220, 74, 1) 30%,
+					rgba(63, 218, 216, 1) 40%,
+					rgba(47, 201, 226, 1) 50%,
+					rgba(28, 127, 238, 1) 60%,
+					rgba(95, 21, 242, 1) 70%,
+					rgba(186, 12, 248, 1) 80%,
+					rgba(251, 7, 217, 1) 90%,
+					rgba(255, 0, 0, 1) 100%);
+			--rainbow-h: linear-gradient(90deg,
+					rgba(255, 0, 0, 1) 0%,
+					rgba(255, 154, 0, 1) 10%,
+					rgba(208, 222, 33, 1) 20%,
+					rgba(79, 220, 74, 1) 30%,
+					rgba(63, 218, 216, 1) 40%,
+					rgba(47, 201, 226, 1) 50%,
+					rgba(28, 127, 238, 1) 60%,
+					rgba(95, 21, 242, 1) 70%,
+					rgba(186, 12, 248, 1) 80%,
+					rgba(251, 7, 217, 1) 90%,
+					rgba(255, 0, 0, 1) 100%);
+			--rainbow-45: linear-gradient(45deg, red, orange, green, cyan, blue, purple, red);
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+			animation-iteration-count: infinite;
+			font-family: 'Comic Sans MS', sans-serif;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		.invisible {
+			opacity: 0;
+			pointer-events: none;
+			position: absolute;
+			display: inline;
+		}
+
+		.reverse {
+			transform: scaleX(-1);
+		}
+
+		.overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 10000;
+			pointer-events: none;
+		}
+
+		.bottom-image {
+			position: absolute;
+			z-index: -1;
+			bottom: 0;
+			left: calc(50% - 100px);
+		}
+		.bottom-image-container {
+			position: relative;
+		}
+
+		/* table borders */
+
+		table {
+			width: 100vw;
+			height: 100vh;
+			border-collapse: collapse;
+			border: none;
+		}
+
+		table td {
+			border: 2px solid white;
+			padding: 10px;
+		}
+
+		table tr:last-child td {
+			border-bottom: 0;
+		}
+
+		table tr td:first-child,
+		tr th:first-child {
+			border-left: 0;
+		}
+
+		table tr td:last-child,
+		tr th:last-child {
+			border-right: 0;
+		}
+
+		#col1 {
+			vertical-align: top;
+		}
+
+		#col2 {
+			text-align: center;
+			vertical-align: bottom;
+			padding: 0;
+			padding-bottom: calc(50vh - 100px);
+		}
+		/* killfeed */
+
+
+		#col3 {
+			padding: 0;
+			vertical-align: top;
+		}
+
+		#col3-container {
+			overflow-y: auto;
+			height: calc(100vh - 180px);
+			scrollbar-width: none;
+			position: relative;
+		}
+
+		#col3-container::-webkit-scrollbar {
+			display: none;
+		}
+
+		#col3 a {
+			text-decoration: none;
+		}
+
+		#killfeed {
+			padding: 10px;
+		}
+
+		.row-container {
+			display: table-row;
+			min-height: 40px;
+		}
+
+		.killfeed-element-container {
+			text-align: center;
+			font-family: "Rajdhani", sans-serif;
+		}
+
+		.killfeed-element {
+			margin-top: 15px;
+			min-width: 100px;
+			position: relative;
+			display: inline-block;
+			background: rgba(0, 0, 0, 0.5);
+			border: 2px #B50000 solid;
+			border-radius: 6px;
+			padding: 0 10px;
+			transform: scale(1);
+			transition: .1s;
+		}
+
+		.killfeed-element:hover {
+			transform: scale(1.01);
+			box-shadow: 0 0 10px rgba(111, 0, 0, 0.5);
+		}
+
+		.killer {
+			max-width: 150px;
+			min-height: 40px;
+			color: #ECCE51;
+			display: table-cell;
+			vertical-align: middle;
+			padding-right: 10px;
+		}
+
+		.weapon {
+			display: table-cell;
+			vertical-align: middle;
+			padding-right: 10px;
+		}
+
+		.awp {
+			margin-top: 8px;
+			height: 25px;
+			width: 80px;
+			background: url("assets/awp.png") no-repeat;
+			background-size: cover;
+		}
+
+		.killed {
+			max-width: 150px;
+			margin-left: 10px;
+			color: #71A6FF;
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		#message-box {
+			position: fixed;
+			width: 380px;
+			min-height: 100px;
+			left: calc(50% - 250px);
+			top: calc(50% - 125px);
+			z-index: 100;
+			padding: 60px;
+		}
+
+		/* hit or miss message */
+
+		#hit-or-miss {
+			z-index: 100;
+			font-family: "CSGO", sans-serif;
+			font-size: 60px;
+			text-align: center;
+			vertical-align: middle;
+			width: 200px;
+			position: fixed;
+			opacity: 0;
+			top: calc(50% - 30px);
+			left: calc(50% - 100px);
+			color: yellow;
+			text-transform: uppercase;
+			-webkit-text-stroke-color: black;
+			-webkit-text-stroke-width: 1px;
+		}
+
+		.fade-out {
+			animation: fade-out 1.5s ease-out;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+			color: white;
+			margin: 0;
+			text-transform: uppercase;
+		}
+
+		.rainbow-text {
+			animation: rainbow 2s linear;
+			animation-iteration-count: infinite;
+			background: var(--rainbow-45);
+			background-size: 100vw;
+			background-clip: text;
+			color: transparent;
+			-webkit-background-clip: text;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color: white;
+		}
+
+		.rainbow-bg-h {
+			animation: reverse-rainbow 4s linear;
+			animation-iteration-count: infinite;
+			background: var(--rainbow-h);
+			background-size: 100vw;
+		}
+
+		.rainbow-bg-v {
+			animation: vertical-rainbow 4s linear;
+			animation-iteration-count: infinite;
+			background: var(--rainbow-v);
+			background-size: 100% 100vh;
+		}
+
+		.rainbow-bg-vr {
+			animation: reverse-vertical-rainbow 4s linear;
+			animation-iteration-count: infinite;
+			background: var(--rainbow-v);
+			background-size: 100% 100vh;
+		}
+
+		thead {
+			text-align: center;
+			padding: 20px;
+			height: fit-content;
+		}
+
+		thead h1 {
+			font-size: 60px;
+		}
+
+		thead h2 {
+			font-size: 40px;
+		}
+
+		/* form components */
+
+		button,
+		input[type="text"] {
+			padding: 3px;
+			transition: transform 100ms;
+		}
+
+		button,
+		input[type="text"],
+		#message-box {
+			animation: epileptic-rainbow .3s linear;
+			animation-iteration-count: infinite;
+			border-width: 3px;
+			border-style: solid;
+			border-radius: 5px;
+		}
+
+		input,
+		button {
+			margin-top: 10px;
+			font-family: 'Comic Sans MS', sans-serif;
+		}
+
+		[type="submit"] {
+			width: 100%;
+			animation-delay: -225ms;
+			padding: 10px;
+			font-size: 20px;
+			margin-top: 20px;
+		}
+
+		.small {
+			transform: scale(0.8);
+		}
+
+		/* etc */
+
+		#score {
+			font-size: 25px;
+			margin: 10px;
+			color: yellow;
+			-webkit-text-stroke-color: black;
+			-webkit-text-stroke-width: 1px;
+		}
+
+		#hitmarker {
+			position: fixed;
+			height: 25px;
+			width: 25px;
+			z-index: 10;
+		}
 	</style>
 </head>
 
@@ -464,8 +473,8 @@
 		<canvas id="tmp" class="hidden" width="640" height="360"></canvas>
 		<canvas id="awp" class="overlay" width="640" height="360"></canvas>
 		<canvas id="blt" class="hidden"></canvas>
-		<span class="hit-or-miss">miss!</span>
-		<div id="message-box" class="hidden epileptic-rainbow">
+		<span id="hit-or-miss">miss!</span>
+		<div id="message-box" class="hidden">
 			<form>
 				<p id="message"></p>
 				<button type="submit" style="animation-delay: -150ms;">Ok</button>
@@ -473,23 +482,26 @@
 		</div>
 	</div>
 	<img id="hitmarker" class="hidden" src="assets/hitmarker.png" />
-	<table class="container" cellspacing="0">
-		<tr class="header rainbow-bg-h">
-			<th width="25%">
-				<img class="reverse" src="assets/twerk.gif" height="175px" />
-			</th>
-			<th width="50%">
-				<h1 class="rainbow-text">cringoulique</h1>
-				<h2 class="rainbow-text">p32092 / 1714</h2>
-			</th>
-			<th width="25%">
-				<img src="assets/twerk.gif" height="175px" />
-			</th>
-		</tr>
-		<tr style="height: 100%;">
-			<td class="v-top bb-0">
-				<h1 class="rainbow-text">take aim</h1>
-				<form id="form">
+	<table cellspacing="0">
+		<thead>
+			<tr class="rainbow-bg-h">
+				<th width="25%">
+					<img class="reverse" src="assets/twerk.gif" height="175px" />
+				</th>
+				<th width="50%">
+					<h1 class="rainbow-text">cringoulique</h1>
+					<h2 class="rainbow-text">p32092 / 1714</h2>
+				</th>
+				<th width="25%">
+					<img src="assets/twerk.gif" height="175px" />
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr style="height: 100%;">
+				<td id="col1" class="bottom-image-container">
+					<h1 class="rainbow-text">take aim</h1>
+					<form id="form">
 					<label>x: </label>
 					<input required="required" class="invisible" id="x" name="x" type="text" value="" />
 					<button class="x" type="button" data-x="-2">-2</button>
@@ -504,7 +516,7 @@
 					<br />
 					<label for="y">y: </label>
 					<input required="required" style="animation-delay: -150ms;" id="y" name="y" type="text"
-						placeholder="float (-5.0...5.0) XD" class="bad-value" />
+						placeholder="float (-5.0; 5.0) XD" class="bad-value" />
 					<br />
 					<label>r: </label>
 					<input required="required" name="r" id="r1" type="radio" value="1" />
@@ -519,23 +531,22 @@
 					<label for="r5">3</label>
 					<br />
 					<button type="submit">Shoot!</button>
+						<img class="bottom-image" src="assets/frog.gif" width="250px" />
 				</form>
 			</td>
-			<td class="rainbow-bg-vr center bb-0" rowspan="2">
+			<td id="col2" class="rainbow-bg-vr">
 				<img src="assets/areas.png" class="plot" />
 			</td>
-			<td class="p-0 bb-0 v-top bottom-image-container" rowspan="2">
-				<p class="score">Score: 0</p>
-				<div id="killfeed">
+			<td id="col3" class="bottom-image-container">
+				<div id="col3-container">
+					<p id="score">Score: 0</p>
+					<div id="killfeed">
+					</div>
+					<img class="bottom-image" src="assets/snoop.gif"/>
 				</div>
-				<img class="bottom-image" src="assets/snoop.gif"/>
 			</td>
 		</tr>
-		<tr>
-			<td class="v-bottom center p-0 bt-0">
-				<img src="assets/frog.gif" width="250px" />
-			</td>
-		</tr>
+	</tbody>
 	</table>
 
 	<script src="js/animation.js" type="text/javascript"></script>
