@@ -61,9 +61,9 @@
 
 	$hit = $area->point_within($x, $y);
 
-	$end_time = (int) microtime(true);
+	$end_time = microtime(true);
 	$script_time = number_format($end_time - $start_time, 5, '.', '');
-	$end_datetime = date("d/m/Y H:i:s", $end_time);
+	$end_datetime = date("d/m/Y H:i:s", (int)$end_time);
 ?>
 
 {

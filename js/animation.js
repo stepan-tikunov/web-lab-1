@@ -5,6 +5,7 @@ class AnimationProcessor {
 	y = 0;
 	score = 0;
 	wow = false;
+	killfeed = [];
 	hitOrMiss = document.querySelector("#hit-or-miss");
 	scoreElement = document.querySelector("#score");
 	messageBox = document.getElementById("message-box");
@@ -28,6 +29,11 @@ class AnimationProcessor {
 			hitmarker.classList.remove("hidden");
 			setTimeout(() => hitmarker.classList.add("hidden"), 100);
 		});
+
+		this.killfeed = JSON.parse(window.sessionStorage.getItem("killfeed")) ?? [];
+		for (const [killer, killed] of this.killfeed) {
+			this.updateKillfeed(killer, killed, true);
+		}
 	}
 
 	resizeCanvases() {
@@ -78,7 +84,7 @@ class AnimationProcessor {
 		setTimeout(removeClass.bind(this), 1500);
 	}
 
-	updateKillfeed(killer, killed) {
+	updateKillfeed(killer, killed, fromSessionStorage=false) {
 		// <div class="killfeed-element-container">
 		// 	<div class="killfeed-element">
 		// 		<a href="" class="killer">banned</a>
@@ -112,6 +118,10 @@ class AnimationProcessor {
 		kfElemContainer.appendChild(kfElem);
 		const killfeed = document.getElementById("killfeed");
 		killfeed.insertBefore(kfElemContainer, killfeed.firstChild);
+		if (!fromSessionStorage) {
+			this.killfeed.push([killer, killed]);
+			window.sessionStorage.setItem("killfeed", JSON.stringify(this.killfeed));
+		}
 	}
 
 	drawVideoFrame() {
