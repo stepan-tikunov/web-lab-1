@@ -69,5 +69,5 @@
 {
 	"result": <?=$hit ? "true" : "false" ?>,
 	"now": "<?=$end_datetime?>",
-	"script_time": <?=$script_time?>
+	"scriptTime": <?=$script_time?>
 }

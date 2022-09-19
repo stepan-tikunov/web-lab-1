@@ -1,0 +1,89 @@
+#killfeed {
+	padding: 10px;
+}
+
+.row-container {
+	display: table-row;
+	min-height: 40px;
+}
+
+.killfeed-element-container {
+	text-align: center;
+	font-family: "Rajdhani", sans-serif;
+}
+
+.killfeed-element {
+	margin-top: 15px;
+	min-width: 100px;
+	position: relative;
+	display: inline-block;
+	background: rgba(0, 0, 0, 0.5);
+	border: 2px #B50000 solid;
+	border-radius: 6px;
+	padding: 0 10px;
+	transform: scale(1);
+	transition: .1s;
+}
+
+.killfeed-element:hover {
+	transform: scale(1.01);
+	box-shadow: 0 0 10px rgba(111, 0, 0, 0.5);
+}
+
+.killer {
+	max-width: 150px;
+	min-height: 40px;
+	color: #ECCE51;
+	display: table-cell;
+	vertical-align: middle;
+	padding-right: 10px;
+}
+
+.weapon {
+	display: table-cell;
+	vertical-align: middle;
+	padding-right: 10px;
+}
+
+.awp {
+	margin-top: 8px;
+	height: 25px;
+	width: 80px;
+	background: url("../assets/png/awp.png") no-repeat;
+	background-size: cover;
+}
+
+.killed {
+	max-width: 150px;
+	margin-left: 10px;
+	color: #71A6FF;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#message-box {
+	position: fixed;
+	width: 380px;
+	min-height: 100px;
+	left: calc(50% - 250px);
+	top: calc(50% - 125px);
+	z-index: 100;
+	padding: 60px;
+}
+
+#hit-or-miss {
+	z-index: 100;
+	font-family: "CSGO", sans-serif;
+	font-size: 60px;
+	text-align: center;
+	vertical-align: middle;
+	width: 200px;
+	position: fixed;
+	opacity: 0;
+	top: calc(50% - 30px);
+	left: calc(50% - 100px);
+	color: yellow;
+	text-transform: uppercase;
+	-webkit-text-stroke-color: black;
+	-webkit-text-stroke-width: 1px;
+}

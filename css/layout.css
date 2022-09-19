@@ -1,0 +1,105 @@
+#hit-or-miss {
+	z-index: 100;
+	text-align: center;
+	vertical-align: middle;
+	position: fixed;
+	width: 200px;
+	top: calc(50% - 30px);
+	left: calc(50% - 100px);
+}
+
+#message-box {
+	position: fixed;
+	width: 380px;
+	min-height: 100px;
+	left: calc(50% - 250px);
+	top: calc(50% - 125px);
+	z-index: 100;
+	padding: 60px;
+}
+
+#col1 {
+	vertical-align: top;
+}
+
+#col2 {
+	text-align: center;
+	vertical-align: bottom;
+	padding: 0;
+	padding-bottom: calc(50vh - 100px);
+}
+
+#col3 {
+	padding: 0;
+	vertical-align: top;
+}
+
+#col3-container {
+	overflow-y: auto;
+	height: calc(100vh - 180px);
+	scrollbar-width: none;
+	position: relative;
+}
+
+#col3-container::-webkit-scrollbar {
+	display: none;
+}
+
+
+table {
+	width: 100vw;
+	height: 100vh;
+	border-collapse: collapse;
+	border: none;
+}
+
+thead {
+	text-align: center;
+	padding: 20px;
+	height: fit-content;
+}
+
+td {
+	border: 2px solid white;
+	padding: 10px;
+}
+
+tr:last-child td {
+	border-bottom: 0;
+}
+
+tr td:first-child,
+tr th:first-child {
+	border-left: 0;
+}
+
+tr td:last-child,
+tr th:last-child {
+	border-right: 0;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	pointer-events: none;
+}
+
+.bottom-image {
+	position: absolute;
+	z-index: -1;
+	bottom: 0;
+	left: calc(50% - 100px);
+}
+
+.bottom-image-container {
+	position: relative;
+}
+
+#hitmarker {
+	position: fixed;
+	height: 25px;
+	width: 25px;
+	z-index: 10;
+}

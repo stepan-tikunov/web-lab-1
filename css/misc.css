@@ -1,0 +1,166 @@
+html {
+	--rainbow-v: linear-gradient(0,
+			rgba(255, 0, 0, 1) 0%,
+			rgba(255, 154, 0, 1) 10%,
+			rgba(208, 222, 33, 1) 20%,
+			rgba(79, 220, 74, 1) 30%,
+			rgba(63, 218, 216, 1) 40%,
+			rgba(47, 201, 226, 1) 50%,
+			rgba(28, 127, 238, 1) 60%,
+			rgba(95, 21, 242, 1) 70%,
+			rgba(186, 12, 248, 1) 80%,
+			rgba(251, 7, 217, 1) 90%,
+			rgba(255, 0, 0, 1) 100%);
+	--rainbow-h: linear-gradient(90deg,
+			rgba(255, 0, 0, 1) 0%,
+			rgba(255, 154, 0, 1) 10%,
+			rgba(208, 222, 33, 1) 20%,
+			rgba(79, 220, 74, 1) 30%,
+			rgba(63, 218, 216, 1) 40%,
+			rgba(47, 201, 226, 1) 50%,
+			rgba(28, 127, 238, 1) 60%,
+			rgba(95, 21, 242, 1) 70%,
+			rgba(186, 12, 248, 1) 80%,
+			rgba(251, 7, 217, 1) 90%,
+			rgba(255, 0, 0, 1) 100%);
+	--rainbow-45: linear-gradient(45deg, red, orange, green, cyan, blue, purple, red);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	animation-iteration-count: infinite;
+	font-family: 'Comic Sans MS', sans-serif;
+	background-color: black;
+}
+
+.hidden {
+	display: none;
+}
+
+.invisible {
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	display: inline;
+}
+
+.reverse {
+	transform: scaleX(-1);
+}
+
+#col3 a {
+	text-decoration: none;
+}
+
+#hit-or-miss {
+	font-family: "CSGO", sans-serif;
+	font-size: 60px;
+	opacity: 0;
+	color: yellow;
+	text-transform: uppercase;
+	-webkit-text-stroke-color: black;
+	-webkit-text-stroke-width: 1px;
+}
+
+.fade-out {
+	animation: fade-out 1.5s ease-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	color: white;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.rainbow-text {
+	animation: rainbow 2s linear;
+	animation-iteration-count: infinite;
+	background: var(--rainbow-45);
+	background-size: 100vw;
+	background-clip: text;
+	color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: white;
+}
+
+.rainbow-bg-h {
+	animation: reverse-rainbow 4s linear;
+	animation-iteration-count: infinite;
+	background: var(--rainbow-h);
+	background-size: 100vw;
+}
+
+.rainbow-bg-v {
+	animation: vertical-rainbow 4s linear;
+	animation-iteration-count: infinite;
+	background: var(--rainbow-v);
+	background-size: 100% 100vh;
+}
+
+.rainbow-bg-vr {
+	animation: reverse-vertical-rainbow 4s linear;
+	animation-iteration-count: infinite;
+	background: var(--rainbow-v);
+	background-size: 100% 100vh;
+}
+
+thead h1 {
+	font-size: 60px;
+}
+
+thead h2 {
+	font-size: 40px;
+}
+
+/* form components */
+
+button,
+input[type="text"] {
+	padding: 3px;
+	transition: transform 100ms;
+}
+
+button,
+input[type="text"],
+#message-box {
+	animation: epileptic-rainbow .3s linear;
+	animation-iteration-count: infinite;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 5px;
+}
+
+input,
+button {
+	margin-top: 10px;
+	font-family: 'Comic Sans MS', sans-serif;
+}
+
+[type="submit"] {
+	width: 100%;
+	animation-delay: -225ms;
+	padding: 10px;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+.small {
+	transform: scale(0.8);
+}
+
+/* etc */
+
+#score {
+	font-size: 25px;
+	margin: 10px;
+	color: yellow;
+	-webkit-text-stroke-color: black;
+	-webkit-text-stroke-width: 1px;
+}

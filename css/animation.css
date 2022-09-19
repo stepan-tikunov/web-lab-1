@@ -1,0 +1,85 @@
+@keyframes fade-out {
+	from {
+		opacity: 1;
+		top: calc(50% - 30px);
+	}
+
+	to {
+		opacity: 0;
+		top: calc(50% - 100px);
+	}
+}
+
+@keyframes epileptic-rainbow {
+
+	0%,
+	100% {
+		background-color: orangered;
+		border-color: purple;
+	}
+
+	17% {
+		background-color: yellow;
+		border-color: red;
+	}
+
+	33% {
+		background-color: greenyellow;
+		border-color: orange;
+	}
+
+	50% {
+		background-color: cyan;
+		border-color: yellow;
+	}
+
+	67% {
+		background-color: violet;
+		border-color: greenyellow;
+	}
+
+	83% {
+		background-color: mediumpurple;
+		border-color: cyan;
+	}
+}
+
+@keyframes rainbow {
+	from {
+		background-position: 0;
+	}
+
+	to {
+		background-position: 100vw;
+	}
+}
+
+@keyframes reverse-rainbow {
+	from {
+		background-position: 100vw;
+	}
+
+	to {
+		background-position: 0;
+	}
+}
+
+@keyframes vertical-rainbow {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: 0 100vh;
+	}
+}
+
+@keyframes reverse-vertical-rainbow {
+	from {
+		background-position: 0 100vh;
+	}
+
+	to {
+		background-position: 0 0;
+	}
+}
